@@ -1,0 +1,120 @@
+//package client
+
+//import (
+//	"flag"
+//	"fmt"
+
+//	//"io"
+//	"net/http"
+//	//"os"
+
+//	//	"strings"
+
+//	//"strconv"
+//	"time"
+//)
+
+//const (
+//	LENGTH int64  = 100
+//	PORT   int    = 8080
+//	PATH   string = "/time"
+//)
+
+//var envoyhost = flag.String("envoyhost", "", "host deployed envoy")
+//var envoyport = flag.String("envoyport", "", "port listened by envoy")
+//var log = flag.String("log", "", "port listened by envoy")
+
+//func main() {
+//	flag.Parse()
+
+//	url := "http://10.64.39.52:8080/time"
+//	if *envoyhost != "" && *envoyport != "" {
+//		//url := "http://10.64.39.52:8080/time"
+//		url = "http://" + *envoyhost + ":" + string(*envoyport) + PATH
+//		fmt.Println("url: ", url)
+//	}
+
+//	client := &http.Client{}
+
+//	//url := "http://10.64.39.52:8080/time"
+//	// envoy
+//	//url := http://10.10.108.133:10000/time
+
+//	reqest, err := http.NewRequest("GET", url, nil)
+//	if err != nil {
+//		panic(err)
+//	}
+
+//	//t := make(map[int]int64)
+
+//	var total int64
+
+//	for index := 0; index < int(LENGTH); index++ {
+//		start := time.Now()
+//		response, _ := client.Do(reqest)
+//		defer response.Body.Close()
+//		elapsed := time.Since(start)
+
+//		//		if !strings.HasPrefix(response.Status, "200") {
+//		//			fmt.Println("error, status code was not 200, ", response.Status)
+//		//		}
+//		if response.StatusCode != http.StatusOK {
+//			fmt.Println("error, status code was not 200, ", response.Status)
+//		}
+
+//		//		if *log != "" {
+//		//			stdout := os.Stdout
+//		//			_, err = io.Copy(stdout, response.Body)
+
+//		//			fmt.Println("\telapsed: ", elapsed)
+//		//			fmt.Println("\tstatus: ", response.Status)
+//		//		}
+
+//		total += int64(elapsed)
+//	}
+//	fmt.Println("total: ", total)
+//	avg := total / LENGTH / 1000000
+//	fmt.Println("average: ", avg)
+
+//	//	for index := 0; index < LENGTH; index++ {
+//	//		start := time.Now()
+//	//		response, _ := client.Do(reqest)
+//	//		defer response.Body.Close()
+//	//		elapsed := time.Since(start)
+//	//		fmt.Println("=======================elapse: ", elapsed)
+
+//	//		if !strings.HasPrefix(response.Status, "200") {
+//	//			fmt.Println("error, status code was not 200, ", response.Status)
+//	//		}
+
+//	//		if *log != "" {
+//	//			stdout := os.Stdout
+//	//			_, err = io.Copy(stdout, response.Body)
+
+//	//			fmt.Println("\telapsed: ", elapsed)
+//	//			fmt.Println("\tstatus: ", response.Status)
+//	//		}
+
+//	//		tc := elapsed.String()
+//	//		length := strings.Count(tc, "") - 1
+//	//		unit := tc[length-2:]
+//	//		f, _ := strconv.ParseFloat(tc[0:length-2], 64)
+
+//	//		if unit == "ms" {
+//	//			//fmt.Println("ms: ", f*1000)
+//	//			t[index+1] = f * 1000
+//	//		} else {
+//	//			t[index+1] = f
+//	//		}
+
+//	//	}
+
+//	//	var avg float64
+//	//	var sum float64
+//	//	for _, val := range t {
+//	//		sum = sum + val
+//	//		//fmt.Println(val)
+//	//	}
+//	//	avg = float64(sum / float64(LENGTH))
+//	//	fmt.Println("average: ", avg, "µs")
+//}

@@ -1,0 +1,19 @@
+p, alice, data1, read
+p, bob, data2, read
+
+p, data1_admin, data1, read
+p, data1_admin, data1, write
+
+p, data2_admin, data2, read
+p, data2_admin, data2, write
+
+p, developer, data1, read
+p, developer, data2, read
+
+g, alice, data1_admin
+g, alice, data2_admin
+g, alice, developer
+
+g, data1, developer
+g, data1, maintainer
+

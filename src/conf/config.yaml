@@ -1,0 +1,5 @@
+mongo:
+  url: 10.10.108.105:27017
+  username: root
+  password: zaq!wsx
+  dbname: userauth-dev
