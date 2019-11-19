@@ -489,10 +489,10 @@ func main() {
 //	fmt.Println(RETURNC)
 //	fmt.Println(TRANSC)
 //
-//	cmd := 2
-//	var transCmd = CommandType(cmd)
+//	cmdapp := 2
+//	var transCmd = CommandType(cmdapp)
 //
-//	log.Println("---------trans cmd", transCmd)
+//	log.Println("---------trans cmdapp", transCmd)
 //
 //	var increment uint64
 //
