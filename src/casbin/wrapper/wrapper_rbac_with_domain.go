@@ -1,6 +1,7 @@
 package wrapper
 
 import (
+	"fmt"
 	"github.com/casbin/casbin"
 	"github.com/casbin/casbin/rbac"
 	"github.com/casbin/casbin/rbac/default-role-manager"
@@ -26,7 +27,11 @@ func NewEnforcerUseMongo(mongodbURL string) *casbin.SyncedEnforcer {
 	// w := utils.NewWatcher(conf.AppConfig.ZKHOST.HOST)
 	adapter := mongodbadapter.NewAdapter(mongodbURL) // Your MongoDB URL.
 	casbinModelPath := conf.AppConfig.CasbinModelPath
-	e, _ := casbin.NewSyncedEnforcer(casbinModelPath, adapter)
+	e, err := casbin.NewSyncedEnforcer(casbinModelPath, adapter)
+	if err != nil {
+		fmt.Println("err: ", err.Error())
+		return nil
+	}
 	// e.SetWatcher(w)
 	// w.SetUpdateCallback(func(rev string) {
 	// 	log.WithFields(log.Fields{"module": "zkwatcher"}).Info(
