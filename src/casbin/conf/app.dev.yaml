@@ -1,0 +1,18 @@
+appname: userauth
+httpport: 8080
+loglevel: debug
+casbinmodelpath: conf/model_with_domain.conf
+mongo:
+  url: 127.0.0.1:27017
+  username: user
+  password: user123
+  dbname: userauth
+zkhost:
+  host: 127.0.0.1:2181
+ldap:
+  host: https://ldap.cc
+Redis:
+  host: 10.10.10.103:6379
+keypath:
+  prikeypath: conf/keys/private.pem
+  pubkeypath: conf/keys/public.pub
